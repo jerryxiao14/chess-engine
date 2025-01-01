@@ -1,5 +1,5 @@
 
-from node import Node
+#from node import Node
 from chess import Move, Board
 import chess
 

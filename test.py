@@ -1,4 +1,5 @@
-import chessEnv
+import tensorflow as tf
+print(tf.__version__)
 
-testBoard = chessEnv.ChessEnv()
-print(testBoard)
+import keras
+print(keras.__version__)
