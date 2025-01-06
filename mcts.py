@@ -23,7 +23,7 @@ class MCTS:
             leaf = self.select_child(self.root)
             leaf.N +=1
             leaf = self.expand(leaf)
-
+            
             leaf = self.backpropagate(leaf,leaf.value)
     
     def select_child(self, node):
