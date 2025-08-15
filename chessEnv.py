@@ -12,6 +12,9 @@ class ChessEnv:
     def step(self, move: Move) -> Board:
         self.board.push(move)
         return self.board
+    
+    def reset(self):
+        self.board = Board(self.fen)
 
 
     @staticmethod
@@ -21,7 +24,7 @@ class ChessEnv:
         
         is_white_turn = np.ones((8,8)) if board.turn else np.zeros((8,8))
 
-        print(f'is_white_turn is {is_white_turn}')
+        #print(f'is_white_turn is {is_white_turn}')
         castling = np.asarray([
             np.ones((8, 8)) if board.has_queenside_castling_rights(
                 chess.WHITE) else np.zeros((8, 8)),
@@ -32,9 +35,7 @@ class ChessEnv:
             np.ones((8, 8)) if board.has_kingside_castling_rights(
                 chess.BLACK) else np.zeros((8, 8)),
         ])
-        print(f'castling rights (White queen side, white kingside, black kingside, black queenside) is \n {castling}')
         fifty_move = np.ones((8,8)) if board.can_claim_fifty_moves() else np.zeros((8,8))
-        print(f'fifty_move rule is {fifty_move}')
         pieces = []
         
         for color in chess.COLORS:

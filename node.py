@@ -39,7 +39,7 @@ class Node:
     def add_child(self, child, action, prior):
         # Add a child node to current node
 
-        edge = Edge(input_node = self, output_node = child, action = action, prior = prior)
+        edge = Edge(in_node = self, out_node = child, action = action, prior = prior)
         self.edges.append(edge)
 
         return edge 

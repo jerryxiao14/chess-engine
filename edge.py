@@ -25,8 +25,8 @@ class Edge:
     def upper_confidence_bound(self, noise:float) ->float:
         c = math.sqrt(2)
 
-        exploitative_term = self.W/self.N 
-        exploratory_term = c*(self.P*noise)*math.sqrt(math.log(self.in_node.N)/self.N)
+        exploitative_term = self.W/(self.N+1)
+        exploratory_term = c*(self.P*noise)*math.sqrt(math.log(self.in_node.N+1)/(self.N+1))
         if self.in_node.turn==chess.WHITE:
             return exploitative_term+exploratory_term
         return -1*exploitative_term+exploratory_term

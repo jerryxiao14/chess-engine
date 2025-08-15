@@ -2,7 +2,7 @@
 
 import modelbuilder
 import config
-from keras.api.models import Model, load_model
+from keras.api.keras.models import Model, load_model
 import mcts 
 
 import numpy as np
